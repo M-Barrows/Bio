@@ -11,78 +11,87 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Exo:200i|Julius+Sans+One" rel="stylesheet">
 </head>
-  <style>
-    .nametitle {font-family: 'Julius Sans One', sans-serif;}
-    .tagline {font-family: 'Exo', sans-serif;}
-  </style>
+
 
 <body>
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-  <center><h1 class = "nametitle">Michael Barrows</h1></center>
-  <center><h3 class = "tagline">M.S. Information Systems Student</h3></center>
-
-  <h2> About Me: </h2>
-  <p>
-    I am currently studying information systems at a university in the midwestern
-    United States. My previous education and experience surounded the topic of
-    academic ecological research. While I am still very interested in ecological research,
-    a longing to develop my database management, data analytics, and software development
-    skills pushed me to return to school.
-  </p>
-  <p>
-    In my exploration of new data management techniques, I have tackled several
-    independent and occupational projects. Each project has helped me to understand
-    new ways to interact with data and oftentimes a new programming language.
-    I have enjoyed each of the projects and am excited to take on more, challenging
-    projects in the near future.
-  </p>
-  <p>
-    This website will serve as a showcase for my completed personal projects as well
-    as providing relevant proffesional information such as resumes and work history.
-    If you have any questions, please use the "Contact Me" section.
-  </p>
+  <div class="container" style="width:100%;">
+    <div id="parallaxHead" class="parallax">
+      <div class="parallaxContainer">
+        <div class="parallaxContent">
+          <h1 class = "nametitle">Michael Barrows</h1>
+          <h3 class = "tagline">M.S. Information Systems Student</h3>
+          </div>
+      </div>
+    </div>
+    <h2 id="AboutMe"> About Me: </h2>
+    <p>
+      I am currently studying information systems at a university in the midwestern
+      United States. My previous education and experience surounded the topic of
+      academic ecological research. While I am still very interested in ecological research,
+      a longing to develop my database management, data analytics, and software development
+      skills pushed me to return to school.
+    </p>
+    <p>
+      In my exploration of new data management techniques, I have tackled several
+      independent and occupational projects. Each project has helped me to understand
+      new ways to interact with data and oftentimes a new programming language.
+      I have enjoyed each of the projects and am excited to take on more, challenging
+      projects in the near future.
+    </p>
+    <p>
+      This website will serve as a showcase for my completed personal projects as well
+      as providing relevant proffesional information such as resumes and work history.
+      If you have any questions, please use the "Contact Me" section.
+    </p>
+    <div id="parallaxProjects" class="parallax"></div>
   </br>
-  <h2> Projects: </h2>
-
-  <div class="col-md-4">
-    <center><h3>SeenIt!</h3></center>
-    <p><em>SeenIt!</em> is a website (on my local network) running on a Raspberry Pi Zero
-      that helps users remember which episode of a television show they last watched. Users
-      are able select their list of shows, edit the season and episode of current shows as well
-      as add new shows to the list. This is an ongoing project and the features are constantly
-      being re-evaluated and updated.
-    </p>
-    <p>
+  <div class="container">
+    <h2 id="Projects"> Projects: </h2>
+    <div class="col-md-4">
+      <center><h3>SeenIt!</h3></center>
+      <p><em>SeenIt!</em> is a website (on my local network) running on a Raspberry Pi Zero
+        that helps users remember which episode of a television show they last watched. Users
+        are able select their list of shows, edit the season and episode of current shows as well
+        as add new shows to the list. This is an ongoing project and the features are constantly
+        being re-evaluated and updated.
+      </p>
+      <p>
+        Languages and technologies involved:
+        <ul>
+          <li> HTML </li>
+          <li> CSS </li>
+          <li> JavaScript </li>
+          <li> PHP </li>
+          <li> MySQL </li>
+          <li> GitHub </li>
+        </ul>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <center><h3>Parental Bank Consortium</h3></center>
+      <p>
+        <em>Parental Bank Consortium</em> is a small web application that was developed as a
+        final project for my "Web Development with .Net" course. This project is a prototype
+        of a potential backing website that would allow parents to monitor their child's spending
+        patters as well as help make payments and supply funding for certain "Wish List" items the
+        children may have.
+      </p>
       Languages and technologies involved:
-      <ul>
-        <li> HTML </li>
-        <li> CSS </li>
-        <li> JavaScript </li>
-        <li> PHP </li>
-        <li> MySQL </li>
-        <li> GitHub </li>
-    </ul>
-    </p>
-  </div>
-  <div class="col-md-4">
-    <center><h3>Parental Bank Consortium</h3></center>
-    <p>
-      <em>Parental Bank Consortium</em> is a small web application that was developed as a
-      final project for my "Web Development with .Net" course. This project is a prototype
-      of a potential backing website that would allow parents to monitor their child's spending
-      patters as well as help make payments and supply funding for certain "Wish List" items the
-      children may have.
-    </p>
-    Languages and technologies involved:
       <ul>
         <li> C# </li>
         <li> .Net </li>
         <li> VisualStudio </li>
         <li> GitHub </li>
-    </ul>
+      </ul>
+    </div>
+    <div class="col-md-4"> <p>
+      test
+    </p></div>
   </div>
+  <div class="parallax">
+
   </div>
-<div class="col-md-2"></div>
+  <h2 id="ContactMe">Contact Me:</h2>
+</div>
 </body>
 </html>

@@ -1,14 +1,46 @@
 body, html {
     height: 100%;
 }
-
-.parallax {
-    /* Full height */
-    height: 100%; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+p{
+  font-size: 16px;
 }
+.nametitle{
+  color: white;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 8vh;
+}
+.parallax{
+  min-height: 150px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+.tagline {
+  color: white;
+  font-family: 'Exo', sans-serif; color: white;
+}
+.parallaxContainer{
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.parallaxContent{
+  background: rgba(0,0,0,0.6);
+  height: 100%;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+
+}
+
+#parallaxHead{
+  background-image: url("headerImg.jpg");
+  height: 400px;
+}
+#parallaxProjects{
+  background-image: url("projectsImg.jpg");
+  min-height: 500px;
