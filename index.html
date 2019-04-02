@@ -1,103 +1,47 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
 
   <title>Michael Barrows</title>
   <meta name="description" content="Resume Website for Michael Barrows">
   <meta name="author" content="Michael Barrows">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Exo:200i|Julius+Sans+One" rel="stylesheet">
+  <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU"
+    crossorigin="anonymous">
+  <!-- development version of vue, includes helpful console warnings 
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+  <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 
 <body>
-  <div class="container" style="width:100%;">
-    <div id="parallaxHead" class="parallax">
-      <div class="parallaxContainer">
-        <div class="parallaxContent">
-          <h1 class = "nametitle">Michael Barrows</h1>
-          <h3 class = "tagline">M.S. Information Systems Student</h3>
-          </div>
+    <div id="app">
+      <div id="sidebar" class="col-md-2">
+          <center>
+            <img id="headshot" src="./images/Headshot.png" width="100vh" height="100vh">
+            <h3>{{ basic.firstName }} {{ basic.lastName }}</h3>
+            <p> {{basic.title}} </p>
+          </center>
       </div>
-    </div>
-    <h2 id="AboutMe"> About Me: </h2>
-    <p>
-      I am currently studying information systems at a university in the midwestern
-      United States. My previous education and experience surounded the topic of
-      academic ecological research. While I am still very interested in ecological research,
-      a longing to develop my database management, data analytics, and software development
-      skills pushed me to return to school.
-    </p>
-    <p>
-      In my exploration of new data management techniques, I have tackled several
-      independent and occupational projects. Each project has helped me to understand
-      new ways to interact with data and oftentimes a new programming language.
-      I have enjoyed each of the projects and am excited to take on more, challenging
-      projects in the near future.
-    </p>
-    <p>
-      This website will serve as a showcase for my completed personal projects as well
-      as providing relevant proffesional information such as resumes and work history.
-      If you have any questions, please use the "Contact Me" section.
-    </p>
-    <div id="parallaxProjects" class="parallax"></div>
-  </br>
-  <div class="container">
-    <h2 id="Projects"> Projects: </h2>
-    <div class="col-md-4">
-      <center><h3>SeenIt!</h3></center>
-      <p><em>SeenIt!</em> is a website (on my local network) running on a Raspberry Pi Zero
-        that helps users remember which episode of a television show they last watched. Users
-        are able select their list of shows, edit the season and episode of current shows as well
-        as add new shows to the list. This is an ongoing project and the features are constantly
-        being re-evaluated and updated.
-      </p>
-      <p>
-        Languages and technologies involved:
-        <ul>
-          <li> HTML </li>
-          <li> CSS </li>
-          <li> JavaScript </li>
-          <li> PHP </li>
-          <li> MySQL </li>
-          <li> GitHub </li>
+      <div v-for = "(value,key) in cards" class = "card col-md-5">
+        <h2>{{key}}</h2>
+        <ul v-for = "item in value">
+          <li v-for = "(value,key) in item">
+            {{key}}:{{value}}
+          </li>
         </ul>
-      </p>
+        
+      </div>      
     </div>
-    <div class="col-md-4">
-      <center><h3>Parental Bank Consortium</h3></center>
-      <p>
-        <em>Parental Bank Consortium</em> is a small web application that was developed as a
-        final project for my "Web Development with .Net" course. This project is a prototype
-        of a potential backing website that would allow parents to monitor their child's spending
-        patters as well as help make payments and supply funding for certain "Wish List" items the
-        children may have.
-      </p>
-      Languages and technologies involved:
-      <ul>
-        <li> C# </li>
-        <li> .Net </li>
-        <li> VisualStudio </li>
-        <li> GitHub </li>
-      </ul>
-    </div>
-    <div class="col-md-4"> <p>
-    </p></div>
-  </div>
-  <div class="parallax">
 
-  </div>
-  <h2 id="ContactMe">Contact Me:</h2>
-  <p>
-    I am currently looking for employment and would be excited to hear from you should
-    you have any opportunities. I would also be excited to hear from anyone regarding
-    other interesting technology topics as well! Feel free to
-    <a href="mailto::barrowmh@mail.uc.edu">e-mail</a> me or contact me on Github!
-  </p>
 
-</div>
+    <script src="index.js"></script>
 </body>
+
 </html>

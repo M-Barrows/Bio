@@ -4,43 +4,16 @@ body, html {
 p{
   font-size: 16px;
 }
-.nametitle{
-  color: white;
-  font-family: 'Julius Sans One', sans-serif;
-  font-size: 8vh;
+.card{
+  border-bottom: 0.3em;
+  border-style: outset;
+  border-color: silver;
 }
-.parallax{
-  min-height: 150px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-
+#sidebar{
+  background-color: coral;
+  height: 100vh;
 }
-.tagline {
-  color: white;
-  font-family: 'Exo', sans-serif; color: white;
+#headshot{
+  margin-top: 2vh;
+  border-radius: 50%;
 }
-.parallaxContainer{
-  display: table;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-.parallaxContent{
-  background: rgba(0,0,0,0.6);
-  height: 100%;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-
-}
-
-#parallaxHead{
-  background-image: url("headerImg.jpg");
-  height: 400px;
-}
-#parallaxProjects{
-  background-image: url("projectsImg.jpg");
-  min-height: 500px;
