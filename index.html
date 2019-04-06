@@ -28,16 +28,42 @@
             <h3>{{ basic.firstName }} {{ basic.lastName }}</h3>
             <p> {{basic.title}} </p>
           </center>
+          <button class="btn">
+            Resume
+          </button>
+          <button class="btn">
+            Projects
+          </button>
       </div>
-      <div v-for = "(value,key) in cards" class = "card col-md-5">
-        <h2>{{key}}</h2>
-        <ul v-for = "item in value">
-          <li v-for = "(value,key) in item">
-            {{key}}:{{value}}
-          </li>
-        </ul>
-        
-      </div>      
+      <div class = "card col-md-5">
+        <table v-for = "diploma in cards.Education">
+          <tr>
+            <td>{{diploma.year}}</td>
+            <td>{{diploma.degree}}</td>
+            <td>{{diploma.school}}</td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              {{diploma.description}}
+            </td>
+          </tr>
+        </table>  
+      </div> 
+      <div class = "card col-md-5">
+          <table v-for = "job in cards.WorkHistory">
+            <tr>
+              <td v-if="job.current == 'yes'">{{job.start}} - current</td>
+              <td v-else>{{job.start}} - {{job.end}}</td>
+              <td>{{job.title}}</td>
+              <td>{{job.company}}</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                {{job.description}}
+              </td>
+            </tr>
+          </table>  
+        </div>     
     </div>
 
 

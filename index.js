@@ -17,13 +17,15 @@ var app = new Vue({
             "Education":[
                 {
                     "degree":"M.S. Info Systems Management",
-                    "school":"University of Cincinnati: Lindner College of Business",
-                    "year":"2018.12"
+                    "school":"University of Cincinnati",
+                    "year":"2018.12",
+                    "description":"UC provided me with a focused understanding of info systems management solutions as well as a deeper knowledge of statistical analysis using R, Tableau, and SPSS."
                 },
                 {
                     "degree":"B.S. Biology",
                     "school":"Hope College",
-                    "year":"2015.05"
+                    "year":"2015.05",
+                    "description":"At Hope College I learned the fundamentals of academic research, ecological sciences, and higher-level problem solving."
                 }
             ],
             "Skills":[
@@ -48,27 +50,30 @@ var app = new Vue({
                     "proficiency":5
                 }
             ],
-            "Work History":[
+            "WorkHistory":[
                 {
                     "company":"Total Quality Logistics",
                     "title":"Business Intelligence Analyst",
                     "start":"2018.05",
                     "end":"",
-                    "current":"yes"
+                    "current":"yes",
+                    "description":"Using advanced analytical techniques to drive business decisions."
                 },
                 {
                     "company":"Lane Public Library",
                     "title":"Public Services Associate III",
                     "start":"2017.06",
                     "end":"2018.05",
-                    "current":"no"
+                    "current":"no",
+                    "description":""
                 },
                 {
                     "company":"University of Michigan",
                     "title":"Research Associate",
                     "start":"2015.05",
                     "end":"2016.11",
-                    "current":"no"
+                    "current":"no",
+                    "description":""
                 }
             ],
             "Projects":[
