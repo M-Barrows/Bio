@@ -23,10 +23,10 @@ var app = new Vue({
         "cards":{
             "Education":[
                 {
-                    "degree":"M.S. Info Systems Management",
+                    "degree":"M.S. Information Systems Management",
                     "school":"University of Cincinnati",
                     "year":"2018.12",
-                    "description":"UC provided me with a focused understanding of info systems management solutions as well as a deeper knowledge of statistical analysis using R, Tableau, and SPSS.",
+                    "description":"During the study of my master's degree, I developed a focused understanding of information systems management solutions as well as a deeper knowledge of statistical analysis using R, Tableau, and SPSS.",
                     "courses":[
                         "Data Mining for Business Intelligence"
                         ,"IS Project Management"
@@ -34,32 +34,35 @@ var app = new Vue({
                         , "IS Security"
                         , "Database Design"
                         ,"Data Warehousing and Business Intelligence"
-                    ]
+                    ],
+                    "link": "https://business.uc.edu/academics/specialized-masters/information-systems.html"
                 },
                 {
                     "degree":"Data Analytics Graduate Certificate",
                     "school":"University of Cincinnati",
                     "year":"2018.12",
-                    "description":"",
+                    "description":"By completing the Data Analytics Certificate concurrently with my M.S. Information Systems Management, I was able to focus on the skills necessary to tease business decisions from massive amounts of data. I was then able to relate these skills back to the managment decisions-at-hand for IT leaders, making me a strong T-shaped developer.",
                     "courses":[
                         "Statistical Computing"
                         ,"Data Visualization"
                         ,"Data Wrangling w/ R"
                         ,"Data Analysis Methods"
-                    ]
+                    ],
+                    "link":"https://business.uc.edu/academics/graduate-certificates/data-analytics.html"
                 },
                 {
                     "degree":"B.S. Biology",
                     "school":"Hope College",
                     "year":"2015.05",
-                    "description":"At Hope College I learned the fundamentals of academic research, ecological sciences, and higher-level problem solving.",
+                    "description":"At Hope College I learned the fundamentals of academic research, ecological sciences, and higher-level problem solving. I find myself using these skills in my everyday life regardless of the application.",
                     "courses":[
                         "Software Design and Implementation"
                         , "Conservation Biology"
                         , "Evolutionary Biology"
                         , "Vascular Plant Systematics"
                         , "Ancient Philosophy"
-                    ]
+                    ],
+                    "link":"https://hope.edu/catalog/current/biology/index.html#biology-major"
                 }
             ],
             "Skills":[
@@ -86,16 +89,22 @@ var app = new Vue({
             ],
             "WorkHistory":[
                 {
-                    "company":"Total Quality Logistics",
+                    "company": {
+                        "name":"Total Quality Logistics",
+                        "link":"https://www.tql.com/"
+                    },
                     "title":"Business Intelligence Analyst",
                     "start":"2018.05",
                     "end":"",
                     "current":"yes",
-                    "description":"At TQL I'm using advanced analytical techniques in conjunction with tools such as Power BI, SSRS, and R Shiny to deliver actionable insights that help drive influential change.",
+                    "description":"At TQL I'm using advanced analytical techniques in conjunction with tools such as Power BI, SSRS, and RStudio to deliver actionable insights that help drive influential change.",
                     "moreinfo":""
                 },
                 {
-                    "company":"Lane Public Library",
+                    "company": {
+                        "name":"Lane Public Library",
+                        "link":"https://www.lanepl.org/"
+                    },
                     "title":"Public Services Associate III",
                     "start":"2017.06",
                     "end":"2018.05",
@@ -104,7 +113,10 @@ var app = new Vue({
                     "moreinfo":""
                 },
                 {
-                    "company":"University of Michigan",
+                    "company": {
+                        "name":"University of Michigan",
+                        "link":"https://lsa.umich.edu/eeb"
+                    },
                     "title":"Research Associate",
                     "start":"2015.05",
                     "end":"2016.11",

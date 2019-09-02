@@ -3,19 +3,60 @@ body, html {
 }
 p{
   font-size: 16px;
+  font-family: 'Raleway',sans-serif;
+}
+h2{
+  font-family: 'Lato', sans-serif;
+}
+td
+{
+  font-size: 18px;
+  padding: 0 15px;
+  font-family: 'Raleway',sans-serif;
+}
+a {
+  color: #667079
+}
+a:hover {
+  color: #343a3f
 }
 .card{
   border-bottom: 0.3em;
   border-style: outset;
-  border-color: silver;
+  border-color: rgba(192, 192, 192, 0);
+}
+.subTableHeader td
+{
+  padding-bottom: 10px;
+  font-size: 22px;
+  font-family: 'Lato', sans-serif;
+  color: #667079
+}
+.paddingBtwSections
+{
+  padding-bottom: 20px;
+}
+.sectionHeader{
+  color: #337ab7
+}
+#salutation{
+  font-family: 'Popins', sans-serif;
+  font-size: 5em;
+  color: #343a3f;
 }
 #main{
   margin-left: 23vw;
 }
 #sidebar{
-  background-color: coral;
+  background-color: rgb(255, 167, 134);
   height: 100vh;
   position: fixed;
+}
+#sidebar a{
+  color: #337ab7
+}
+#sidebar a:hover{
+  color: #21517a
 }
 #sidebar button{
   width: 80%;
@@ -31,20 +72,4 @@ p{
   border-radius: 50%;
   width: 15vw;
   height: 15vw;
-}
-#socials{
-   
-}
-.paddingBtwHeader
-{
-  padding-bottom: 10px;
-}
-.paddingBtwSections
-{
-  padding-bottom: 20px;
-}
-td
-{
-  font-size: 16px;
-  padding: 0 15px;
 }
