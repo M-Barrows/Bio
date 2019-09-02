@@ -9,9 +9,13 @@ p{
   border-style: outset;
   border-color: silver;
 }
+#main{
+  margin-left: 23vw;
+}
 #sidebar{
   background-color: coral;
   height: 100vh;
+  position: fixed;
 }
 #sidebar button{
   width: 80%;
@@ -25,4 +29,22 @@ p{
 #headshot{
   margin-top: 2vh;
   border-radius: 50%;
+  width: 15vw;
+  height: 15vw;
+}
+#socials{
+   
+}
+.paddingBtwHeader
+{
+  padding-bottom: 10px;
+}
+.paddingBtwSections
+{
+  padding-bottom: 20px;
+}
+td
+{
+  font-size: 16px;
+  padding: 0 15px;
 }

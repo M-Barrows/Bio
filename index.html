@@ -11,63 +11,103 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Exo:200i|Julius+Sans+One" rel="stylesheet">
-  <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU"
-    crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU"
+    crossorigin="anonymous">-->
+  <script src="https://kit.fontawesome.com/8c781f34f9.js"></script>
   <!-- development version of vue, includes helpful console warnings 
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
   <!-- production version, optimized for size and speed -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 
 <body>
-    <div id="app">
-      <div id="sidebar" class="col-md-2">
-          <center>
-            <img id="headshot" src="./images/Headshot.png" width="100vh" height="100vh">
-            <h3>{{ basic.firstName }} {{ basic.lastName }}</h3>
-            <p> {{basic.title}} </p>
-          </center>
-          <button class="btn">
-            Resume
-          </button>
-          <button class="btn">
-            Projects
-          </button>
+  <div id="app">
+    <div id="sidebar" class="col-md-3">
+      <center>
+        <img id="headshot" src="./images/Headshot.png" width="100vh" height="100vh">
+        <h2>{{ basic.firstName }} {{ basic.lastName }}</h2>
+        <p><em> {{basic.title}} </em></p>
+        <div id="socials" >
+          <span v-for = "website in socials">| <i v-bind:class="website.icon"></i> <a target="_blank" v-bind:href="website.link">{{website.name}}</a> | </span>
+        </div>
+      </center>
+      <button @click.native="page = resume" class="btn">
+        Resume
+      </button>
+      <button @click.native="page = projects" class="btn">
+        Projects
+      </button>
+    </div>
+    <div v-if="page == resume" id="main" class = "col-md-9">
+      <div class= "row" style = "padding-top: 20px;">
+        <div class = "col-md-1"></div>
+        <div class = "card col-md-10">
+          <p>
+            <h2>Hello! 👋 </h2> 
+            I'm excited you've stumbled across my bio page! You will find all the necessary information below or in the sidebar 👈. 
+            I'd also like to mention that my current professional foci are developing my data science prowess and improving my data visualization techniques.
+            However, I'm also enjoying (and exploring) any twists and turns that may come along the way (i.e. VueJS, Data Modeling, enterprise architecture planning, developement operations, etc.).
+            As such, I'd be more than happy to discuss any topics you think I might be able to assist with or simply anything interesting that you'd like to share. 
+            Feel free to reach out with any such topics via my social media accounts in the sidebar! Thanks, and happy reading!
+          </p>
+        </div>
       </div>
-      <div class = "card col-md-5">
-        <table v-for = "diploma in cards.Education">
-          <tr>
-            <td>{{diploma.year}}</td>
-            <td>{{diploma.degree}}</td>
-            <td>{{diploma.school}}</td>
-          </tr>
-          <tr>
-            <td colspan="3">
-              {{diploma.description}}
-            </td>
-          </tr>
-        </table>  
-      </div> 
-      <div class = "card col-md-5">
+      <div class= "row" style = "padding-top: 20px;">
+          <div class = "col-md-1"></div>
+          <div class = "card col-md-10">
+            <h2>Education</h2>
+            <table v-for = "diploma in cards.Education">
+              <tr class = "paddingBtwHeader">
+                <td style="width: 2em"><strong>{{diploma.year}}</strong></td>
+                <td style="width: 20em"><strong>{{diploma.degree}}</strong></td>
+                <td><strong>{{diploma.school}}</strong></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                    {{diploma.description}}
+                </td>
+              </tr>
+              <tr>
+                <td class="paddingBtwSections" colspan="3">
+                  <em><p>Influential Courses:</p></em>
+                  <ul>
+                    <li v-for = "course in diploma.courses">
+                      {{course}}
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </table>  
+          </div>
+          <div class = "col-md-1"></div> 
+      </div>
+      <div class = "row" style = "padding-top: 20px;"> 
+        <div class = "col-md-1"></div>
+        <div class = "card col-md-10">
+            <h2>Experience</h2>
           <table v-for = "job in cards.WorkHistory">
             <tr>
-              <td v-if="job.current == 'yes'">{{job.start}} - current</td>
-              <td v-else>{{job.start}} - {{job.end}}</td>
-              <td>{{job.title}}</td>
-              <td>{{job.company}}</td>
+              <td style="width: 10em" v-if="job.current == 'yes'"><strong>{{job.start}} - Current</strong></td>
+              <td style="width: 10em" v-else><strong>{{job.start}} - {{job.end}}</strong></td>
+              <td style="width: 20em"><strong>{{job.title}}</strong></td>
+              <td><strong>{{job.company}}</strong></td>
             </tr>
             <tr>
-              <td colspan="3">
-                {{job.description}}
+              <td class = "paddingBtwSections" colspan="3">
+                {{job.description}} <a target="_blank" v-bind:href="job.moreinfo" v-if="job.moreinfo != ''">link</a>
               </td>
             </tr>
           </table>  
-        </div>     
+        </div> 
+        <div class = "col-md-1"></div>
+      </div>
     </div>
+      
+  </div>
 
 
-    <script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>
