@@ -1,6 +1,11 @@
-var app = new Vue({ 
+const app = new Vue({ 
     el: '#app',
     data: {
+        "viewMode":"Desktop",
+        "height": 900,
+        "width": 1800,
+        "salutation":"Hello World! 👋",
+        "abstract":"I'm excited you've stumbled across my bio page! You will find all the necessary information below or in the sidebar 👈. I'd also like to mention that my current professional foci are developing my data science prowess and improving my data visualization techniques. I'm also enjoying (and exploring) any twists and turns that may come along the way (i.e. VueJS, Data Modeling, enterprise architecture planning, developement operations, etc.). As such, I'd be more than happy to discuss any topics you think I might be able to assist with or simply anything interesting that you'd like to share. Feel free to reach out with any such topics via my social media accounts in the sidebar! Thanks, and happy reading!",
         "basic":{
             "firstName":"Michael",
             "lastName":"Barrows",
@@ -157,5 +162,31 @@ var app = new Vue({
                 }
             ]
         }        
+    },
+    mounted() {
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
+    },
+    computed: {
+        canvas: function () {
+            return this.$refs.imagecanvas;
+        }
+    },
+    methods: {
+        handleResize: function () {
+            // Calculate new canvas size based on window
+            self = this
+            var h = window.innerHeight;
+            var w = window.innerWidth;
+            self.height = h;
+            self.width = w;
+            if (w >= 1750) {self.viewMode = "Desktop" ;}
+            else if(w < 1750 & w >= 1000){self.viewMode = "Tablet";}
+            else{self.viewMode = "Mobile";}
+           
+        }
+    },
+    beforeDestroy() {
+        window.removeEventListener('resize', this.handleResize);
     }
-});
+  });

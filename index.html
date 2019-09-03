@@ -18,92 +18,218 @@
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
   <!-- production version, optimized for size and speed -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-resize-text"></script>
 </head>
 
 
 <body>
   <div id="app">
-    <div id="sidebar" class="col-md-3">
-      <center>
-        <img id="headshot" src="./images/Headshot.png" width="100vh" height="100vh">
-        <h1>{{ basic.firstName }} {{ basic.lastName }}</h1>
-        <h2><em> {{basic.title}} </em></h2>
-        <div style="margin-top: 2em">
-          <span v-for = "website in socials" style="font-size: 1.5em; color: #337ab7"> <i v-bind:class="website.icon"> </i> <a target="_blank" v-bind:href="website.link">{{website.name}} </a> </span>
-        </div>
-      </center>
-      <button style ="visibility: hidden" @click.native="page = resume" class="btn">
-        Resume
-      </button>
-      <button style ="visibility: hidden"  @click.native="page = projects" class="btn">
-        Projects
-      </button>
-    </div>
-    <div v-if="page == resume" id="main" class = "col-md-9">
-      <div class= "row" style = "padding-top: 20px;">
-        <div class = "col-md-2"></div>
-        <div class = "card col-md-8">
-          <p id = "salutation"> Hello World! 👋 </p> 
-          <p style = "font-size: 20px">
-            I'm excited you've stumbled across my bio page! You will find all the necessary information below or in the sidebar 👈. 
-            I'd also like to mention that my current professional foci are developing my data science prowess and improving my data visualization techniques.
-            I'm also enjoying (and exploring) any twists and turns that may come along the way (i.e. VueJS, Data Modeling, enterprise architecture planning, developement operations, etc.).
-            As such, I'd be more than happy to discuss any topics you think I might be able to assist with or simply anything interesting that you'd like to share. 
-            Feel free to reach out with any such topics via my social media accounts in the sidebar! Thanks, and happy reading!
-          </p>
-        </div>
+    <div id="image-canvas" ref="imagecanvas" v-bind:width="width" v-bind:height="height" style="z-index: -1;">
+      <div v-show="viewMode == 'Desktop' | viewMode == 'Tablet'" id="sidebar" class="col-md-3">
+        <center>
+          <img id="headshot" src="./images/Headshot.png" width="100vh" height="100vh">
+          <div v-resize-text="{minFontSize: '20vw', maxFontSize: '50vw'}">{{ basic.firstName }} {{ basic.lastName }}</div>
+          <div v-resize-text="{ratio: 1.5, minFontSize: '15vw', maxFontSize: '30vw'}"><em> {{basic.title}} </em></div>
+          <div style="margin-top: 2em">
+            <span v-for = "website in socials" style="font-size: 1.5em; color: #337ab7"> <i :class="website.icon"> </i> <a target="_blank" v-bind:href="website.link">{{website.name}} </a> </span>
+          </div>
+        </center>
       </div>
-      <div class= "row" style = "padding-top: 20px;">
+
+      <!-- DESKTOP Layout -->
+      <div v-show="viewMode == 'Desktop'" id="main_desktop" class = "col-md-9">
+        <div class= "row" style = "padding-top: 20px;">
           <div class = "col-md-2"></div>
-          <div class = "card col-md-8">
-            <h2 class = "sectionHeader">EDUCATION</h2>
-            <table v-for = "diploma in cards.Education">
+          <div class = "card col-md-9">
+              <div v-resize-text="{minFontSize: '40px', maxFontSize: '70px'}"> {{salutation}} </div> 
+            <p style = "font-size: 20px"> {{abstract}}
+            </p>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+        <div class= "row" style = "padding-top: 20px;">
+            <div class = "col-md-2"></div>
+            <div class = "card col-md-9">
+              <h2 class = "sectionHeader">EDUCATION</h2>
+              <table v-for = "diploma in cards.Education">
+                <tr class = "subTableHeader">
+                  <td style="width: 2em"><strong>{{diploma.year}}</strong></td>
+                  <td style="width: 20em"><a :href="diploma.link" target="_blank"><strong>{{diploma.degree}}</strong><sup><i class="fas fa-external-link-alt"></i></sup></a></td>
+                  <td><strong>{{diploma.school}}</strong></td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                      {{diploma.description}}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="paddingBtwSections" colspan="3">
+                    <em><p>Influential Courses:</p></em>
+                    <ul>
+                      <li v-for = "course in diploma.courses">
+                        {{course}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>  
+            </div>
+            <div class = "col-md-1"></div> 
+        </div>
+        <div class = "row" style = "padding-top: 20px;"> 
+          <div class = "col-md-2"></div>
+          <div class = "card col-md-9">
+              <h2 class = "sectionHeader">EXPERIENCE</h2>
+            <table v-for = "job in cards.WorkHistory">
               <tr class = "subTableHeader">
-                <td style="width: 2em"><strong>{{diploma.year}}</strong></td>
-                <td style="width: 20em"><a v-bind:href="diploma.link" target="_blank"><strong>{{diploma.degree}}</strong><sup><i class="fas fa-external-link-alt"></i></sup></a></td>
-                <td><strong>{{diploma.school}}</strong></td>
+                <td style="width: 10em" v-if="job.current == 'yes'"><strong>{{job.start}} - Current</strong></td>
+                <td style="width: 10em" v-else><strong>{{job.start}} - {{job.end}}</strong></td>
+                <td style="width: 20em"><strong>{{job.title}}</strong></td>
+                <td><strong><a :href="job.company.link" target="_blank">{{job.company.name}}<sup><i class="fas fa-external-link-alt"></i></sup></a></strong></td>
               </tr>
               <tr>
-                <td colspan="3">
-                    {{diploma.description}}
-                </td>
-              </tr>
-              <tr>
-                <td class="paddingBtwSections" colspan="3">
-                  <em><p>Influential Courses:</p></em>
-                  <ul>
-                    <li v-for = "course in diploma.courses">
-                      {{course}}
-                    </li>
-                  </ul>
+                <td class = "paddingBtwSections" colspan="3">
+                  {{job.description}} <a target="_blank" :href="job.moreinfo" v-if="job.moreinfo != ''">link</a>
                 </td>
               </tr>
             </table>  
-          </div>
-          <div class = "col-md-2"></div> 
+          </div> 
+          <div class = "col-md-1"></div>
+        </div>
       </div>
-      <div class = "row" style = "padding-top: 20px;"> 
-        <div class = "col-md-2"></div>
-        <div class = "card col-md-8">
-            <h2 class = "sectionHeader">EXPERIENCE</h2>
-          <table v-for = "job in cards.WorkHistory">
-            <tr class = "subTableHeader">
-              <td style="width: 10em" v-if="job.current == 'yes'"><strong>{{job.start}} - Current</strong></td>
-              <td style="width: 10em" v-else><strong>{{job.start}} - {{job.end}}</strong></td>
-              <td style="width: 20em"><strong>{{job.title}}</strong></td>
-              <td><strong><a v-bind:href="job.company.link" target="_blank">{{job.company.name}}<sup><i class="fas fa-external-link-alt"></i></sup></a></strong></td>
-            </tr>
-            <tr>
-              <td class = "paddingBtwSections" colspan="3">
-                {{job.description}} <a target="_blank" v-bind:href="job.moreinfo" v-if="job.moreinfo != ''">link</a>
-              </td>
-            </tr>
-          </table>  
-        </div> 
-        <div class = "col-md-2"></div>
-      </div>
-    </div>
+
       
+      <!-- TABLET Layout -->
+      <div v-show="viewMode == 'Tablet'" >
+          <div class = "col-md-2"></div>
+        <div class = "col-md-10">
+          <div class= "row" style = "padding-top: 20px;">
+            <div class = "col-md-2"></div>
+            <div class = "card col-md-9">
+                <div v-resize-text="{minFontSize: '40px', maxFontSize: '70px'}"> {{salutation}} </div> 
+              <p style = "font-size: 20px"> {{abstract}}
+              </p>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+          <div class= "row" style = "padding-top: 20px;">
+              <div class = "col-md-2"></div>
+              <div class = "card col-md-9">
+                <h2 class = "sectionHeader">EDUCATION</h2>
+                <table v-for = "diploma in cards.Education">
+                  <tr class = "subTableHeader">
+                    <td style="width: 2em"><strong>{{diploma.year}}</strong></td>
+                    <td style="width: 20em"><a :href="diploma.link" target="_blank"><strong>{{diploma.degree}}</strong><sup><i class="fas fa-external-link-alt"></i></sup></a></td>
+                    <td><strong>{{diploma.school}}</strong></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                        {{diploma.description}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="paddingBtwSections" colspan="3">
+                      <em><p>Influential Courses:</p></em>
+                      <ul>
+                        <li v-for = "course in diploma.courses">
+                          {{course}}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>  
+              </div>
+              <div class = "col-md-1"></div> 
+          </div>
+          <div class = "row" style = "padding-top: 20px;"> 
+            <div class = "col-md-2"></div>
+            <div class = "card col-md-9">
+                <h2 class = "sectionHeader">EXPERIENCE</h2>
+              <table v-for = "job in cards.WorkHistory">
+                <tr class = "subTableHeader">
+                  <td style="width: 10em" v-if="job.current == 'yes'"><strong>{{job.start}} - Current</strong></td>
+                  <td style="width: 10em" v-else><strong>{{job.start}} - {{job.end}}</strong></td>
+                  <td style="width: 20em"><strong>{{job.title}}</strong></td>
+                  <td><strong><a :href="job.company.link" target="_blank">{{job.company.name}}<sup><i class="fas fa-external-link-alt"></i></sup></a></strong></td>
+                </tr>
+                <tr>
+                  <td class = "paddingBtwSections" colspan="3">
+                    {{job.description}} <a target="_blank" :href="job.moreinfo" v-if="job.moreinfo != ''">link</a>
+                  </td>
+                </tr>
+              </table>  
+            </div> 
+            <div class = "col-md-1"></div>
+          </div>
+        </div>
+        </div>  
+
+        
+      <!-- MOBILE Layout -->
+      <div v-show="viewMode == 'Mobile'" >
+          <div class = "col-md-12">
+            <div class= "row" style = "padding-top: 20px;">
+              <div class = "col-md-2"></div>
+              <div class = "card col-md-9">
+                  <div v-resize-text="{minFontSize: '40px', maxFontSize: '70px'}"> {{salutation}} </div> 
+                <p style = "font-size: 20px"> {{abstract}}
+                </p>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+            <div class= "row" style = "padding-top: 20px;">
+                <div class = "col-md-2"></div>
+                <div class = "card col-md-9">
+                  <h2 class = "sectionHeader">EDUCATION</h2>
+                  <table v-for = "diploma in cards.Education">
+                    <tr class = "subTableHeader">
+                      <td style="width: 2em"><strong>{{diploma.year}}</strong></td>
+                      <td style="width: 20em"><a :href="diploma.link" target="_blank"><strong>{{diploma.degree}}</strong><sup><i class="fas fa-external-link-alt"></i></sup></a></td>
+                      <td><strong>{{diploma.school}}</strong></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">
+                          {{diploma.description}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paddingBtwSections" colspan="3">
+                        <em><p>Influential Courses:</p></em>
+                        <ul>
+                          <li v-for = "course in diploma.courses">
+                            {{course}}
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </table>  
+                </div>
+                <div class = "col-md-1"></div> 
+            </div>
+            <div class = "row" style = "padding-top: 20px;"> 
+              <div class = "col-md-2"></div>
+              <div class = "card col-md-9">
+                  <h2 class = "sectionHeader">EXPERIENCE</h2>
+                <table v-for = "job in cards.WorkHistory">
+                  <tr class = "subTableHeader">
+                    <td style="width: 10em" v-if="job.current == 'yes'"><strong>{{job.start}} - Current</strong></td>
+                    <td style="width: 10em" v-else><strong>{{job.start}} - {{job.end}}</strong></td>
+                    <td style="width: 20em"><strong>{{job.title}}</strong></td>
+                    <td><strong><a :href="job.company.link" target="_blank">{{job.company.name}}<sup><i class="fas fa-external-link-alt"></i></sup></a></strong></td>
+                  </tr>
+                  <tr>
+                    <td class = "paddingBtwSections" colspan="3">
+                      {{job.description}} <a target="_blank" :href="job.moreinfo" v-if="job.moreinfo != ''">link</a>
+                    </td>
+                  </tr>
+                </table>  
+              </div> 
+              <div class = "col-md-1"></div>
+            </div>
+          </div>
+          </div>  
+
+    </div>
   </div>
 
 
