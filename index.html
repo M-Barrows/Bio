@@ -1,103 +1,239 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
 
   <title>Michael Barrows</title>
   <meta name="description" content="Resume Website for Michael Barrows">
   <meta name="author" content="Michael Barrows">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Exo:200i|Julius+Sans+One" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU"
+    crossorigin="anonymous">-->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300|Lato:400i|Exo:200i|Julius+Sans+One|Raleway:300&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/8c781f34f9.js"></script>
+  <!-- development version of vue, includes helpful console warnings 
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+  <!-- production version, optimized for size and speed -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-resize-text"></script>
 </head>
 
 
 <body>
-  <div class="container" style="width:100%;">
-    <div id="parallaxHead" class="parallax">
-      <div class="parallaxContainer">
-        <div class="parallaxContent">
-          <h1 class = "nametitle">Michael Barrows</h1>
-          <h3 class = "tagline">M.S. Information Systems Student</h3>
+  <div id="app">
+    <div id="image-canvas" ref="imagecanvas" v-bind:width="width" v-bind:height="height" style="z-index: -1;">
+      <div v-show="viewMode == 'Desktop' | viewMode == 'Tablet'" id="sidebar" class="col-md-3">
+        <center>
+          <img id="headshot" src="./images/Headshot.png" width="100vh" height="100vh">
+          <div v-resize-text="{minFontSize: '20vw', maxFontSize: '50vw'}">{{ basic.firstName }} {{ basic.lastName }}</div>
+          <div v-resize-text="{ratio: 1.5, minFontSize: '15vw', maxFontSize: '30vw'}"><em> {{basic.title}} </em></div>
+          <div style="margin-top: 2em">
+            <span v-for = "website in socials" style="font-size: 1.5em; color: #337ab7"> <i :class="website.icon"> </i> <a target="_blank" v-bind:href="website.link">{{website.name}} </a> </span>
           </div>
+        </center>
       </div>
-    </div>
-    <h2 id="AboutMe"> About Me: </h2>
-    <p>
-      I am currently studying information systems at a university in the midwestern
-      United States. My previous education and experience surounded the topic of
-      academic ecological research. While I am still very interested in ecological research,
-      a longing to develop my database management, data analytics, and software development
-      skills pushed me to return to school.
-    </p>
-    <p>
-      In my exploration of new data management techniques, I have tackled several
-      independent and occupational projects. Each project has helped me to understand
-      new ways to interact with data and oftentimes a new programming language.
-      I have enjoyed each of the projects and am excited to take on more, challenging
-      projects in the near future.
-    </p>
-    <p>
-      This website will serve as a showcase for my completed personal projects as well
-      as providing relevant proffesional information such as resumes and work history.
-      If you have any questions, please use the "Contact Me" section.
-    </p>
-    <div id="parallaxProjects" class="parallax"></div>
-  </br>
-  <div class="container">
-    <h2 id="Projects"> Projects: </h2>
-    <div class="col-md-4">
-      <center><h3>SeenIt!</h3></center>
-      <p><em>SeenIt!</em> is a website (on my local network) running on a Raspberry Pi Zero
-        that helps users remember which episode of a television show they last watched. Users
-        are able select their list of shows, edit the season and episode of current shows as well
-        as add new shows to the list. This is an ongoing project and the features are constantly
-        being re-evaluated and updated.
-      </p>
-      <p>
-        Languages and technologies involved:
-        <ul>
-          <li> HTML </li>
-          <li> CSS </li>
-          <li> JavaScript </li>
-          <li> PHP </li>
-          <li> MySQL </li>
-          <li> GitHub </li>
-        </ul>
-      </p>
-    </div>
-    <div class="col-md-4">
-      <center><h3>Parental Bank Consortium</h3></center>
-      <p>
-        <em>Parental Bank Consortium</em> is a small web application that was developed as a
-        final project for my "Web Development with .Net" course. This project is a prototype
-        of a potential backing website that would allow parents to monitor their child's spending
-        patters as well as help make payments and supply funding for certain "Wish List" items the
-        children may have.
-      </p>
-      Languages and technologies involved:
-      <ul>
-        <li> C# </li>
-        <li> .Net </li>
-        <li> VisualStudio </li>
-        <li> GitHub </li>
-      </ul>
-    </div>
-    <div class="col-md-4"> <p>
-    </p></div>
-  </div>
-  <div class="parallax">
 
-  </div>
-  <h2 id="ContactMe">Contact Me:</h2>
-  <p>
-    I am currently looking for employment and would be excited to hear from you should
-    you have any opportunities. I would also be excited to hear from anyone regarding
-    other interesting technology topics as well! Feel free to
-    <a href="mailto::barrowmh@mail.uc.edu">e-mail</a> me or contact me on Github!
-  </p>
+      <!-- DESKTOP Layout -->
+      <div v-show="viewMode == 'Desktop'" id="main_desktop" class = "col-md-9">
+        <div class= "row" style = "padding-top: 20px;">
+          <div class = "col-md-2"></div>
+          <div class = "card col-md-9">
+              <div v-resize-text="{minFontSize: '40px', maxFontSize: '70px'}"> {{salutation}} </div> 
+            <p style = "font-size: 20px"> {{abstract}}
+            </p>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+        <div class= "row" style = "padding-top: 20px;">
+            <div class = "col-md-2"></div>
+            <div class = "card col-md-9">
+              <h2 class = "sectionHeader">EDUCATION</h2>
+              <table v-for = "diploma in cards.Education">
+                <tr class = "subTableHeader">
+                  <td style="width: 2em"><strong>{{diploma.year}}</strong></td>
+                  <td style="width: 20em"><a :href="diploma.link" target="_blank"><strong>{{diploma.degree}}</strong><sup><i class="fas fa-external-link-alt"></i></sup></a></td>
+                  <td><strong>{{diploma.school}}</strong></td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                      {{diploma.description}}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="paddingBtwSections" colspan="3">
+                    <em><p>Influential Courses:</p></em>
+                    <ul>
+                      <li v-for = "course in diploma.courses">
+                        {{course}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>  
+            </div>
+            <div class = "col-md-1"></div> 
+        </div>
+        <div class = "row" style = "padding-top: 20px;"> 
+          <div class = "col-md-2"></div>
+          <div class = "card col-md-9">
+              <h2 class = "sectionHeader">EXPERIENCE</h2>
+            <table v-for = "job in cards.WorkHistory">
+              <tr class = "subTableHeader">
+                <td style="width: 10em" v-if="job.current == 'yes'"><strong>{{job.start}} - Current</strong></td>
+                <td style="width: 10em" v-else><strong>{{job.start}} - {{job.end}}</strong></td>
+                <td style="width: 20em"><strong>{{job.title}}</strong></td>
+                <td><strong><a :href="job.company.link" target="_blank">{{job.company.name}}<sup><i class="fas fa-external-link-alt"></i></sup></a></strong></td>
+              </tr>
+              <tr>
+                <td class = "paddingBtwSections" colspan="3">
+                  {{job.description}} <a target="_blank" :href="job.moreinfo" v-if="job.moreinfo != ''">link</a>
+                </td>
+              </tr>
+            </table>  
+          </div> 
+          <div class = "col-md-1"></div>
+        </div>
+      </div>
 
-</div>
+      
+      <!-- TABLET Layout -->
+      <div v-show="viewMode == 'Tablet'" >
+          <div class = "col-md-2"></div>
+        <div class = "col-md-10">
+          <div class= "row" style = "padding-top: 20px;">
+            <div class = "col-md-2"></div>
+            <div class = "card col-md-9">
+                <div v-resize-text="{minFontSize: '40px', maxFontSize: '70px'}"> {{salutation}} </div> 
+              <p style = "font-size: 20px"> {{abstract}}
+              </p>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+          <div class= "row" style = "padding-top: 20px;">
+              <div class = "col-md-2"></div>
+              <div class = "card col-md-9">
+                <h2 class = "sectionHeader">EDUCATION</h2>
+                <table v-for = "diploma in cards.Education">
+                  <tr class = "subTableHeader">
+                    <td style="width: 2em"><strong>{{diploma.year}}</strong></td>
+                    <td style="width: 20em"><a :href="diploma.link" target="_blank"><strong>{{diploma.degree}}</strong><sup><i class="fas fa-external-link-alt"></i></sup></a></td>
+                    <td><strong>{{diploma.school}}</strong></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                        {{diploma.description}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="paddingBtwSections" colspan="3">
+                      <em><p>Influential Courses:</p></em>
+                      <ul>
+                        <li v-for = "course in diploma.courses">
+                          {{course}}
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>  
+              </div>
+              <div class = "col-md-1"></div> 
+          </div>
+          <div class = "row" style = "padding-top: 20px;"> 
+            <div class = "col-md-2"></div>
+            <div class = "card col-md-9">
+                <h2 class = "sectionHeader">EXPERIENCE</h2>
+              <table v-for = "job in cards.WorkHistory">
+                <tr class = "subTableHeader">
+                  <td style="width: 10em" v-if="job.current == 'yes'"><strong>{{job.start}} - Current</strong></td>
+                  <td style="width: 10em" v-else><strong>{{job.start}} - {{job.end}}</strong></td>
+                  <td style="width: 20em"><strong>{{job.title}}</strong></td>
+                  <td><strong><a :href="job.company.link" target="_blank">{{job.company.name}}<sup><i class="fas fa-external-link-alt"></i></sup></a></strong></td>
+                </tr>
+                <tr>
+                  <td class = "paddingBtwSections" colspan="3">
+                    {{job.description}} <a target="_blank" :href="job.moreinfo" v-if="job.moreinfo != ''">link</a>
+                  </td>
+                </tr>
+              </table>  
+            </div> 
+            <div class = "col-md-1"></div>
+          </div>
+        </div>
+        </div>  
+
+        
+      <!-- MOBILE Layout -->
+      <div v-show="viewMode == 'Mobile'" >
+          <div class = "col-md-12">
+            <div class= "row" style = "padding-top: 20px;">
+              <div class = "col-md-2"></div>
+              <div class = "card col-md-9">
+                  <div v-resize-text="{minFontSize: '40px', maxFontSize: '70px'}"> {{salutation}} </div> 
+                <p style = "font-size: 20px"> {{abstract}}
+                </p>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+            <div class= "row" style = "padding-top: 20px;">
+                <div class = "col-md-2"></div>
+                <div class = "card col-md-9">
+                  <h2 class = "sectionHeader">EDUCATION</h2>
+                  <table v-for = "diploma in cards.Education">
+                    <tr class = "subTableHeader">
+                      <td style="width: 2em"><strong>{{diploma.year}}</strong></td>
+                      <td style="width: 20em"><a :href="diploma.link" target="_blank"><strong>{{diploma.degree}}</strong><sup><i class="fas fa-external-link-alt"></i></sup></a></td>
+                      <td><strong>{{diploma.school}}</strong></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">
+                          {{diploma.description}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="paddingBtwSections" colspan="3">
+                        <em><p>Influential Courses:</p></em>
+                        <ul>
+                          <li v-for = "course in diploma.courses">
+                            {{course}}
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </table>  
+                </div>
+                <div class = "col-md-1"></div> 
+            </div>
+            <div class = "row" style = "padding-top: 20px;"> 
+              <div class = "col-md-2"></div>
+              <div class = "card col-md-9">
+                  <h2 class = "sectionHeader">EXPERIENCE</h2>
+                <table v-for = "job in cards.WorkHistory">
+                  <tr class = "subTableHeader">
+                    <td style="width: 10em" v-if="job.current == 'yes'"><strong>{{job.start}} - Current</strong></td>
+                    <td style="width: 10em" v-else><strong>{{job.start}} - {{job.end}}</strong></td>
+                    <td style="width: 20em"><strong>{{job.title}}</strong></td>
+                    <td><strong><a :href="job.company.link" target="_blank">{{job.company.name}}<sup><i class="fas fa-external-link-alt"></i></sup></a></strong></td>
+                  </tr>
+                  <tr>
+                    <td class = "paddingBtwSections" colspan="3">
+                      {{job.description}} <a target="_blank" :href="job.moreinfo" v-if="job.moreinfo != ''">link</a>
+                    </td>
+                  </tr>
+                </table>  
+              </div> 
+              <div class = "col-md-1"></div>
+            </div>
+          </div>
+          </div>  
+
+    </div>
+  </div>
+
+
+  <script src="index.js"></script>
 </body>
+
 </html>
