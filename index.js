@@ -4,8 +4,11 @@ const app = new Vue({
         "viewMode":"Desktop",
         "height": 900,
         "width": 1800,
+        "navbarheight":"height: 3em;",
+        "mobilebodymargin":"margin-top: 3em;",
+        "navbarextended":false,
         "salutation":"Hello World! 👋",
-        "abstract":"I'm excited you've stumbled across my bio page! You will find all the necessary information below or in the sidebar 👈. I'd also like to mention that my current professional foci are developing my data science prowess and improving my data visualization techniques. I'm also enjoying (and exploring) any twists and turns that may come along the way (i.e. VueJS, Data Modeling, enterprise architecture planning, developement operations, etc.). As such, I'd be more than happy to discuss any topics you think I might be able to assist with or simply anything interesting that you'd like to share. Feel free to reach out with any such topics via my social media accounts in the sidebar! Thanks, and happy reading!",
+        "abstract":"I'm excited you've stumbled across my bio page! You will find all the necessary information below or in menu bar. I'd also like to mention that my current professional foci are developing my data science prowess and improving my data visualization techniques. I'm also enjoying (and exploring) any twists and turns that may come along the way (i.e. VueJS, Data Modeling, enterprise architecture planning, developement operations, etc.). As such, I'd be more than happy to discuss any topics you think I might be able to assist with or simply anything interesting that you'd like to share. Feel free to reach out with any such topics via my social media accounts in the sidebar! Thanks, and happy reading!",
         "basic":{
             "firstName":"Michael",
             "lastName":"Barrows",
@@ -180,10 +183,21 @@ const app = new Vue({
             var w = window.innerWidth;
             self.height = h;
             self.width = w;
-            if (w >= 1750) {self.viewMode = "Desktop" ;}
-            else if(w < 1750 & w >= 1000){self.viewMode = "Tablet";}
+            if (w >= 1000) {self.viewMode = "Desktop" ;}
             else{self.viewMode = "Mobile";}
            
+        },
+        ExtendNavbar: function() {
+            if(this.navbarextended ){
+                this.navbarheight = "height: 3em;";
+                this.mobilebodymargin = "margin-top: 3em;";
+                this.navbarextended = false;
+            }
+            else {
+                this.navbarheight = "height: 8em;";
+                this.mobilebodymargin = "margin-top: 8em;";
+                this.navbarextended = true;
+            }
         }
     },
     beforeDestroy() {
