@@ -1,23 +1,4 @@
-/* For desktop: */
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  [class*="col-"] {
-    width: 100%;
-  }
-}
 body, html {
     height: 100%;
 }
@@ -48,7 +29,13 @@ a:hover {
 .subTableHeader td
 {
   padding-bottom: 10px;
-  font-size: 22px;
+  font-size: 1.3em;
+  font-family: 'Lato', sans-serif;
+  color: #667079
+}
+th{
+  padding-bottom: 10px;
+  font-size: 1.5em;
   font-family: 'Lato', sans-serif;
   color: #667079
 }
@@ -92,4 +79,42 @@ a:hover {
   border-radius: 50%;
   width: 15vw;
   height: 15vw;
+}
+#mobilenavbar{
+  background-color: rgb(255, 167, 134);
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+#mobilenavbar a{
+  color: white;
+  text-align: center;
+}
+#mobilenavbar a:hover{
+  color: #337ab7
+}
+#hamburger{
+  text-align: right; 
+  margin-right: 5vw; 
+  font-size: 3vh; 
+  color: #337ab7;
+  display: inline-block; 
+  width: 8%;
+}
+#mobilenavbarheader{
+  text-align: center; 
+  font-size: 2em; 
+  display: inline-block; 
+  width:70%;
+  color: #337ab7;
+}
+.mobilenavbarlinks{
+  font-size: 1.5em; 
+  color: white; 
+  list-style:none; 
+  display: inline-block; 
+  width: 85%; 
+  text-align: center
 }
