@@ -146,22 +146,46 @@ const app = new Vue({
             "Projects":[
                 {
                     "name":"Super Similarities",
+                    "show":true,
+                    "image":"./images/SuperSimilarities.png",
+                    "github":"https://github.com/MBarrows20/SuperSimilarities",
+                    "demo":"https://m-barrows.shinyapps.io/SuperSimilarities/",
                     "tags":[
                         "R Programming",
                         "R Shiny",
                         "Similarity Matricies",
                         "Network Maps"
                     ],
-                    "link":"#"
+                    
                 },
                 {
                     "name":"Safe Pedals",
+                    "show":true,
+                    "image":"./images/SafePedals.png",
+                    "github":"https://github.com/MBarrows20/SFBikes",
+                    "demo":"#",
                     "tags":[
                         "Dashboard",
                         "R Programming",
                         "Data Wrangling"
                     ],
-                    "link":"#"
+                    
+                },
+                {
+                    "name":"SceneIt",
+                    "show":false,
+                    "image":"#",
+                    "github":"https://github.com/MBarrows20/SceneIt",
+                    "demo":'#',
+                    "tags":[
+                        "C#",
+                        ".NET",
+                        "VueJS",
+                        "Async",
+                        "API",
+                        "Checklist"
+                    ],
+                    
                 }
             ]
         }        
