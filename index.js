@@ -171,7 +171,8 @@ const app = new Vue({
                     "tags":[
                         "Dashboard",
                         "R Programming",
-                        "Data Wrangling"
+                        "Data Wrangling",
+                        "OpenData"
                     ]
                     
                 },
