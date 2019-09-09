@@ -61,8 +61,12 @@
                 <p>
                   <a v-if="project.github != '#'" :href="project.github" target="_blank"><i class="fas fa-code"></i> Source</a>   
                   <a v-if="project.demo != '#'" :href="project.demo" target="_blank"><i class="fas fa-play"></i> Demo</a></p>
-                <p>Tags:</p>
-                <ul style="list-style:none;">
+                <p>
+                  <i @click="project.showTags = true" v-show="project.showTags == false" class="fas fa-plus"></i>
+                  <i @click="project.showTags = false" v-show="project.showTags == true" class="fas fa-minus"></i> 
+                    Tags
+                </p>
+                <ul v-if="project.showTags == true" style="list-style:none;">
                   <li v-for="tag in project.tags">{{tag}}</li>
                 </ul>
               </div>

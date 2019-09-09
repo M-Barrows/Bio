@@ -150,12 +150,13 @@ const app = new Vue({
                     "image":"./images/SuperSimilarities.png",
                     "github":"https://github.com/MBarrows20/SuperSimilarities",
                     "demo":"https://m-barrows.shinyapps.io/SuperSimilarities/",
+                    "showTags":false,
                     "tags":[
                         "R Programming",
                         "R Shiny",
                         "Similarity Matricies",
                         "Network Maps"
-                    ],
+                    ]
                     
                 },
                 {
@@ -164,11 +165,12 @@ const app = new Vue({
                     "image":"./images/SafePedals.png",
                     "github":"https://github.com/MBarrows20/SFBikes",
                     "demo":"#",
+                    "showTags":false,
                     "tags":[
                         "Dashboard",
                         "R Programming",
                         "Data Wrangling"
-                    ],
+                    ]
                     
                 },
                 {
@@ -177,6 +179,7 @@ const app = new Vue({
                     "image":"#",
                     "github":"https://github.com/MBarrows20/SceneIt",
                     "demo":'#',
+                    "showTags":false,
                     "tags":[
                         "C#",
                         ".NET",
@@ -184,7 +187,7 @@ const app = new Vue({
                         "Async",
                         "API",
                         "Checklist"
-                    ],
+                    ]
                     
                 }
             ]
