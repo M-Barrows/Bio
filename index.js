@@ -146,22 +146,52 @@ const app = new Vue({
             "Projects":[
                 {
                     "name":"Super Similarities",
+                    "description":"Find superheros which have common characteristics or frequently appear in the smae comics. This was a small experiment to teach myself network graphs in R.",
+                    "show":true,
+                    "image":"./images/SuperSimilarities.png",
+                    "github":"https://github.com/MBarrows20/SuperSimilarities",
+                    "demo":"https://m-barrows.shinyapps.io/SuperSimilarities/",
+                    "showTags":false,
                     "tags":[
                         "R Programming",
                         "R Shiny",
                         "Similarity Matricies",
                         "Network Maps"
-                    ],
-                    "link":"#"
+                    ]
+                    
                 },
                 {
                     "name":"Safe Pedals",
+                    "description":"Explore various characteristics about San Francisco's bike share program. This was a final project for my Data Wrangling with R course at the University of Cincinnati.",
+                    "show":true,
+                    "image":"./images/SafePedals.png",
+                    "github":"https://github.com/MBarrows20/SFBikes",
+                    "demo":"#",
+                    "showTags":false,
                     "tags":[
                         "Dashboard",
                         "R Programming",
-                        "Data Wrangling"
-                    ],
-                    "link":"#"
+                        "Data Wrangling",
+                        "OpenData"
+                    ]
+                    
+                },
+                {
+                    "name":"SceneIt",
+                    "show":false,
+                    "image":"#",
+                    "github":"https://github.com/MBarrows20/SceneIt",
+                    "demo":'#',
+                    "showTags":false,
+                    "tags":[
+                        "C#",
+                        ".NET",
+                        "VueJS",
+                        "Async",
+                        "API",
+                        "Checklist"
+                    ]
+                    
                 }
             ]
         }        
