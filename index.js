@@ -177,6 +177,19 @@ const app = new Vue({
                     
                 },
                 {
+                    "name":"PiHole",
+                    "description":"Custom dark CSS theme for the PiHole ad blocker",
+                    "show":true,
+                    "image":"./images/PiHole.png",
+                    "github":"https://github.com/MBarrows20/pi-hole-material-dark",
+                    "demo":"#",
+                    "showTags":false,
+                    "tags":[
+                        "CSS"
+                    ]
+                    
+                },
+                {
                     "name":"SceneIt",
                     "show":false,
                     "image":"#",
