@@ -177,15 +177,18 @@ const app = new Vue({
                     
                 },
                 {
-                    "name":"PiHole",
-                    "description":"Custom dark CSS theme for the PiHole ad blocker",
+                    "name":"PiHole - Material Dark",
+                    "description":"Custom dark CSS theme for the common PiHole ad blocker",
                     "show":true,
                     "image":"./images/PiHole.png",
                     "github":"https://github.com/MBarrows20/pi-hole-material-dark",
                     "demo":"#",
                     "showTags":false,
                     "tags":[
-                        "CSS"
+                        "CSS",
+                        "Material Design",
+                        "Javascript",
+                        "GitHub"                        
                     ]
                     
                 },
