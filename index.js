@@ -191,7 +191,7 @@ const app = new Vue({
                 },
                 {
                     "name":"RIntroduction",
-                    "description":"Website designed to suppliment an in-person workshop",
+                    "description":"Website designed to suppliment an in-person workshop for getting individuals up and running with R and R Studio.",
                     "show":true,
                     "image":"./images/RIntroduction.png",
                     "github":"https://github.com/MBarrows20/RIntroduction",
