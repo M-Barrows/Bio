@@ -190,6 +190,20 @@ const app = new Vue({
                     
                 },
                 {
+                    "name":"RIntroduction",
+                    "description":"Website designed to suppliment an in-person workshop",
+                    "show":true,
+                    "image":"./images/RIntroduction.png",
+                    "github":"https://github.com/MBarrows20/RIntroduction",
+                    "demo":"https://mbarrows20.github.io/RIntroduction/",
+                    "showTags":false,
+                    "tags":[
+                        "R Programming",
+                        "Learning and Developement",
+                        "Markdown"
+                    ]
+                },
+                {
                     "name":"SceneIt",
                     "show":false,
                     "image":"#",
