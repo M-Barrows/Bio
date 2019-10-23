@@ -12,8 +12,6 @@ const app = new Vue({
         "basic":{
             "firstName":"Michael",
             "lastName":"Barrows",
-            "age": 26,
-            "location":"Cincinnati, OH",
             "title":"Business Intelligence Analyst"
         },
         "socials":[
