@@ -42,7 +42,7 @@
         <div class= "row" style = "padding-top: 20px;">
           <div class = "col-md-2"></div>
           <div class = "card col-md-9">
-              <div v-resize-text="{minFontSize: '40px', maxFontSize: '70px'}"> {{salutation}} </div> 
+              <div v-resize-text="{minFontSize: '40px', maxFontSize: '70px'}"> {{salutation}} </span></div> 
             <p style = "font-size: 18px"> {{abstract}}
             </p>
           </div>
@@ -53,10 +53,10 @@
             <div class = "card col-md-9">
               <h2 class = "sectionHeader">PROJECTS</h2>
               <div v-for="project in cards.Projects" v-if="project.show" class = "row" style="padding-bottom: 10px;">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <a :href="project.github" target="_blank"><img :src="project.image" width="100%" ></a>
               </div>
-              <div class ="col-md-6">
+              <div class ="col-md-8">
                 <h3>{{project.name}}</h3>
                 <p>{{project.description}}</p>
                 <p>

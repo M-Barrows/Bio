@@ -142,19 +142,19 @@ const app = new Vue({
                 }
             ],
             "Projects":[
+                
                 {
-                    "name":"Super Similarities",
-                    "description":"Find superheros which have common characteristics or frequently appear in the smae comics. This was a small experiment to teach myself network graphs in R.",
+                    "name":"Collatz Explorer",
+                    "description":"Project designed to help visualize the Collatz Conjecture according to user defined settings.",
                     "show":true,
-                    "image":"./images/SuperSimilarities.png",
-                    "github":"https://github.com/MBarrows20/SuperSimilarities",
-                    "demo":"https://m-barrows.shinyapps.io/SuperSimilarities/",
+                    "image":"./images/CollatzExplorerIcon.png",
+                    "github":"https://github.com/MBarrows20/CollatzExplorer",
+                    "demo":"https://mbarrows.shinyapps.io/CollatzExplorer/",
                     "showTags":false,
                     "tags":[
-                        "R Programming",
-                        "R Shiny",
-                        "Similarity Matricies",
-                        "Network Maps"
+                        "RShiny",
+                        "Mathematical Concepts",
+                        "Data Visualization"
                     ]
                     
                 },
@@ -162,7 +162,7 @@ const app = new Vue({
                     "name":"Safe Pedals",
                     "description":"Explore various characteristics about San Francisco's bike share program. This was a final project for my Data Wrangling with R course at the University of Cincinnati.",
                     "show":true,
-                    "image":"./images/SafePedals.png",
+                    "image":"./images/SafePedalsIcon.png",
                     "github":"https://github.com/MBarrows20/SFBikes",
                     "demo":"#",
                     "showTags":false,
@@ -178,7 +178,7 @@ const app = new Vue({
                     "name":"PiHole - Material Dark",
                     "description":"Custom dark CSS theme for the common PiHole ad blocker",
                     "show":true,
-                    "image":"./images/PiHole.png",
+                    "image":"./images/PiHoleIcon.png",
                     "github":"https://github.com/MBarrows20/pi-hole-material-dark",
                     "demo":"#",
                     "showTags":false,
@@ -194,7 +194,7 @@ const app = new Vue({
                     "name":"RIntroduction",
                     "description":"Website designed to suppliment an in-person workshop for getting individuals up and running with R and R Studio.",
                     "show":true,
-                    "image":"./images/RIntroduction.png",
+                    "image":"./images/RIntroductionIcon.png",
                     "github":"https://github.com/MBarrows20/RIntroduction",
                     "demo":"https://mbarrows20.github.io/RIntroduction/",
                     "showTags":false,
@@ -203,6 +203,22 @@ const app = new Vue({
                         "Learning and Developement",
                         "Markdown"
                     ]
+                },
+                {
+                    "name":"Super Similarities",
+                    "description":"Find superheros which have common characteristics or frequently appear in the smae comics. This was a small experiment to teach myself network graphs in R.",
+                    "show":true,
+                    "image":"./images/SuperSimilaritiesIcon.png",
+                    "github":"https://github.com/MBarrows20/SuperSimilarities",
+                    "demo":"https://m-barrows.shinyapps.io/SuperSimilarities/",
+                    "showTags":false,
+                    "tags":[
+                        "R Programming",
+                        "R Shiny",
+                        "Similarity Matricies",
+                        "Network Maps"
+                    ]
+                    
                 },
                 {
                     "name":"SceneIt",
