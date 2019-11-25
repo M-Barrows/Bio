@@ -164,7 +164,7 @@ const app = new Vue({
                     "show":true,
                     "image":"./images/SafePedalsIcon.png",
                     "github":"https://github.com/MBarrows20/SFBikes",
-                    "demo":"#",
+                    "demo":"https://mbarrows20.github.io/SFBikes/",
                     "showTags":false,
                     "tags":[
                         "Dashboard",
@@ -210,7 +210,7 @@ const app = new Vue({
                     "show":true,
                     "image":"./images/SuperSimilaritiesIcon.png",
                     "github":"https://github.com/MBarrows20/SuperSimilarities",
-                    "demo":"https://m-barrows.shinyapps.io/SuperSimilarities/",
+                    "demo":"https://mbarrows.shinyapps.io/SuperSimilarities/",
                     "showTags":false,
                     "tags":[
                         "R Programming",
