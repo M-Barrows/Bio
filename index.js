@@ -1,7 +1,10 @@
 const app = new Vue({ 
     el: '#app',
     data: {
-        "viewMode":"Desktop",
+        "desktopMode":true,
+        "tabletMode":false,
+        "mobileMode":false,
+        // "viewMode":"Desktop",
         "height": 900,
         "width": 1800,
         "navbarheight":"height: 3em;",
@@ -257,8 +260,9 @@ const app = new Vue({
             var w = window.innerWidth;
             self.height = h;
             self.width = w;
-            if (w >= 1000) {self.viewMode = "Desktop" ;}
-            else{self.viewMode = "Mobile";}
+            if (w >= 1000) {self.desktopMode = true ; self.tabletMode = false; self.mobileMode = false;}
+            else if(w>=700) {self.desktopMode = false; self.tabletMode = true; self.mobileMode = false;}
+            else{self.desktopMode = false; self.tabletMode = false; self.mobileMode = true;}
            
         },
         ExtendNavbar: function() {

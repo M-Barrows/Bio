@@ -46,18 +46,38 @@ th{
 .sectionHeader{
   color: #337ab7
 }
+.projectGrid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  grid-template-rows: auto;
+  column-gap: 20px;
+}
+#desktopLayout{
+  display:grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: "Sidebar Content";
+}
+#mobileLayout{
+  display:grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: 3em auto;
+  grid-template-areas: 
+    "Navbar",
+    "Content";
+}
+#mobileContent, #main_desktop{
+  margin: auto 5%;
+}
 #salutation{
   font-family: 'Popins', sans-serif;
   
   color: #343a3f;
 }
-#main_desktop{
-  margin-left: 23vw;
-}
 #sidebar{
   background-color: rgb(255, 167, 134);
-  height: 100vh;
-  position: fixed;
+  /* height: 100vh;
+  position: fixed; */
+  grid-area: "Sidebar";
 }
 #sidebar a{
   color: #337ab7
@@ -82,11 +102,15 @@ th{
 }
 #mobilenavbar{
   background-color: rgb(255, 167, 134);
+  grid-area: "Navbar";
   width: 100vw;
   position: fixed;
+  z-index: 20;
+  /* 
   top: 0;
   left: 0;
-  z-index: 20;
+   */
+  
 }
 #mobilenavbar a{
   color: white;
