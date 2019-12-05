@@ -31,9 +31,10 @@
                 <div v-show="desktopMode" id="sidebar">
                     <center>
                         <img id="headshot" src="./images/Headshot.png" width="100vh" height="100vh">
-                        <div v-resize-text="{minFontSize: '20vw', maxFontSize: '50vw'}">{{ basic.firstName }} {{ basic.lastName }}
+                        <div v-resize-text="{minFontSize: '20vw', maxFontSize: '50vw'}">
+                            <span id="sidebarName">{{ basic.firstName }} {{ basic.lastName }}</span>
                         </div>
-                        <div v-resize-text="{ratio: 1.5, minFontSize: '15vw', maxFontSize: '30vw'}"><em> {{basic.title}} </em></div>
+                        <div v-resize-text="{ratio: 1.5, minFontSize: '15vw', maxFontSize: '30vw'}"><em id="sidebarTitle"> {{basic.title}} </em></div>
                         <div style="margin-top: 2em">
                             <span v-for="website in socials" style="font-size: 1.5em; color: #337ab7"> <i :class="website.icon"> </i>
                 <a target="_blank" v-bind:href="website.link">{{website.name}} </a> </span>
@@ -43,7 +44,7 @@
                 <!-- MOBILE Navbar -->
                 <div v-show="mobileMode | tabletMode" id="mobilenavbar" :style="navbarheight">
                     <span @click="ExtendNavbar" id="hamburger"><i class="fas fa-bars"></i></span>
-                    <span id="mobilenavbarheader">Michael Barrows</span>
+                    <span id="mobilenavbarheader">{{ basic.firstName }} {{ basic.lastName }}</span>
                     <ul v-show="navbarextended">
                         <li v-for="website in socials" class="mobilenavbarlinks"> <a target="_blank" v-bind:href="website.link"><i
                   :class="website.icon"> </i> {{website.name}} </a> </span>
@@ -110,7 +111,7 @@
                                 <p class="date" style="width: 10em" v-else><em>{{job.start}} - {{job.end}}</em></p>
                                 <p class="location"><em><a :href="job.company.link" target="_blank">{{job.company.name}}&#32;<sup><i
                           class="fas fa-external-link-alt"></i></sup></a></em></p>
-                                <p class="description" class="paddingBtwSections" colspan="2">
+                                <p class="description" colspan="2">
                                     {{job.description}} <a target="_blank" :href="job.moreinfo" v-if="job.moreinfo != ''">link</a>
                                 </p>
                             </div>
