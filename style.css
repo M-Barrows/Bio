@@ -6,17 +6,21 @@ html {
 p {
     font-size: 16px;
     font-family: 'Raleway', sans-serif;
+    color: #667079;
 }
 
-h2 {
+h2,
+h3 {
     font-family: 'Lato', sans-serif;
+    color: #667079;
 }
 
-td {
+
+/* td {
     font-size: 18px;
     padding: 0 10px;
     font-family: 'Raleway', sans-serif;
-}
+} */
 
 a {
     color: #667079
@@ -34,10 +38,6 @@ a:hover {
     border-bottom: 0.3em;
     border-style: outset;
     border-color: rgba(192, 192, 192, 0);
-}
-
-.paddingBtwSections {
-    padding-bottom: 20px;
 }
 
 .sectionHeader {
@@ -74,13 +74,13 @@ a {
 
 .oneTwoOneGrid {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 1fr auto;
     margin-bottom: 20px;
 }
 
 .title {
-    grid-column: 1/3;
+    grid-column: 1/4;
     grid-row: 1/2;
     font-size: 1.5em;
     font-family: 'Lato', sans-serif;
@@ -93,7 +93,7 @@ a {
 }
 
 .location {
-    grid-column: 2/3;
+    grid-column: 2/4;
     grid-row: 2/3;
 }
 
@@ -105,8 +105,10 @@ a {
 }
 
 .description {
-    grid-column: 1/3;
+    grid-column: 1/4;
     grid-row: 3/4;
+    font-family: 'Raleway', sans-serif;
+    color: #667079;
 }
 
 #desktopLayout {
@@ -152,6 +154,11 @@ a {
     margin-left: 10%;
     margin-right: 10%;
     background-color: antiquewhite;
+}
+
+#sidebarName,
+#sidebarTitle {
+    font-family: 'Raleway', sans-serif;
 }
 
 #headshot {
