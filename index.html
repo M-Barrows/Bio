@@ -83,10 +83,13 @@
                                         <button class="btn" v-show="project.showTags == true" @click="project.showTags = false" :style="{'background-color': project.themeColor, color: project.accentFontColor}"><i
                                                 class="fas fa-minus"></i> Tags</button>
                                     </p>
+                                    <div style="background-color: #dee1e4; border-radius: 10px;">
+                                        <ul v-if="project.showTags == true" style="list-style:none;">
+                                            <li v-for="tag in project.tags"><em>{{tag}}</em></li>
+                                        </ul>
+                                    </div>
                                     <p>{{project.description}}</p>
-                                    <ul v-if="project.showTags == true" style="list-style:none;">
-                                        <li v-for="tag in project.tags">{{tag}}</li>
-                                    </ul>
+
                                 </div>
                             </div>
                         </div>
