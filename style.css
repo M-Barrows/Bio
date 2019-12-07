@@ -51,6 +51,20 @@ a:hover {
     column-gap: 20px;
 }
 
+.projectButtonGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 7px;
+    justify-items: center;
+}
+
+.projectButtonGrid button,
+a {
+    border-radius: 20px;
+    width: 100%;
+}
+
 .projectGrid img {
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
